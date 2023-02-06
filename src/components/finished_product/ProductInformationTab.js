@@ -1,3 +1,4 @@
+import Autocomplete from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -7,6 +8,7 @@ import { useState } from 'react';
 import { IconButton, Tooltip } from '@mui/material';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 
+
 const product_fields = {
     time: '',
     pallet: '',
@@ -15,12 +17,18 @@ const product_fields = {
     pack_code: '',
     corrugated_code: '',
     sanitary_registration: '',
-    destiny: '',
+    destination: '',
     imported_by: '',
-    destiny_box: '',
+    destination_box: '',
     date: '',
     time_box: '',
     box_number: '',
+    destination_legend: '',
+    product_appearance: '',
+    informed_person: '',
+    paper_tearing: '',
+    inspection_status: '',
+    status_motif: ''
 }
 
 const responsive = {
@@ -44,6 +52,7 @@ function ProductInformationTab(props){
         [event.target.name]: event.target.value,
         }
         ));
+        console.log(data);
     };
 
     return (
@@ -82,10 +91,10 @@ function ProductInformationTab(props){
                 </Stack>
                 <Stack>
                     <Typography variant='body1' align='left'>Destino</Typography>
-                    <TextField value={data.destiny} name={"destiny"} onChange={updateData}></TextField>
+                    <TextField value={data.destination} name={"destiny"} onChange={updateData}></TextField>
                 </Stack>
             </Box>
-            <Paper sx={{mt: 3, pb: 1, pr: 1, pl: 1}} elevation={3}>
+            <Paper sx={{mt: 3, pb: 1, pr: 1, pl: 1, mb: 3}} elevation={3}>
                 <Typography variant='h6' align='left' sx={{ mb: 1, mt: 1 }}>Impresión en la Caja</Typography>
                 <Box sx={{ 
                     display: 'grid', 
@@ -105,10 +114,10 @@ function ProductInformationTab(props){
                     </Stack>
                     <Stack>
                         <Typography variant='body1' align='left'>Destino</Typography>
-                        <TextField value={data.destiny_box}  name={"destiny_box"} onChange={updateData}></TextField>
+                        <TextField value={data.destination_box}  name={"destiny_box"} onChange={updateData}></TextField>
                     </Stack>
                     <Stack>
-                        <Typography variant='body1' align='left'>Número de Cajas Inspeccionadas</Typography>
+                        <Typography variant='body1' align='left'>Nro. de las Cajas Inspeccionadas</Typography>
                         <TextField value={data.box_number}  name={"box_number"} onChange={updateData}></TextField>
                     </Stack>
                     <Stack>
@@ -121,6 +130,60 @@ function ProductInformationTab(props){
                     </Stack>
                 </Box>
             </Paper>
+            <Box sx={{ 
+                display: 'grid', 
+                gridTemplateColumns: responsive, 
+                gap: 3}}>
+                <Stack>
+                    <Typography variant='body1' align='left'>Leyenda del Destino</Typography>
+                    <Autocomplete
+                        disablePortal
+                        options={["OK", "NO OK", "N/A"]}
+                        name={"destination_legend"}
+                        renderInput={(params) => <TextField {...params}/>}
+                    />
+                </Stack>
+                <Stack>
+                    <Typography variant='body1' align='left'>Apariencia del Producto</Typography>
+                    <Autocomplete
+                        disablePortal
+                        options={["Buena", "Regular+", "Regular", "Regular-", "Mala"]}
+                        name={"product_appearance"}
+                        renderInput={(params) => <TextField {...params}/>}
+                    />
+                </Stack>
+                <Stack>
+                    <Typography variant='body1' align='left'>Persona Informada</Typography>
+                    <Autocomplete
+                        disablePortal
+                        options={["Nombre 1", "Nombre 2", "Nombre 3"]}
+                        name={"informed_person"}
+                        renderInput={(params) => <TextField {...params}/>}
+                    />
+                </Stack>
+                <Stack>
+                    <Typography variant='body1' align='left'>Desgarre de Papel</Typography>
+                    <Autocomplete
+                        disablePortal
+                        options={["Bueno", "Malo"]}
+                        name={"paper_tearing"}
+                        renderInput={(params) => <TextField {...params}/>}
+                    />
+                </Stack>
+                <Stack>
+                    <Typography variant='body1' align='left'>Estado de Inspección</Typography>
+                    <Autocomplete
+                        disablePortal
+                        options={["Aprobado", "En Proceso", "Detenido"]}
+                        name={"inspection_status"}
+                        renderInput={(params) => <TextField {...params}/>}
+                    />
+                </Stack>
+                <Stack>
+                    <Typography variant='body1' align='left'>Motivo del Estado de Inspección</Typography>
+                    <TextField value={data.status_motif}  name={"box_number"} onChange={updateData}></TextField>
+                </Stack>
+            </Box>
         </Box>
     )
 }
