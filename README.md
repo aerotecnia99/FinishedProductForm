@@ -22,15 +22,12 @@ Los módulos que no aparecen en el siguiente listado, no son relevantes para el 
 
 * ```src/components/FinishedProduct.js```: Es la página que contiene al formulario a ser rellenado por el operador. 
 
-    Funciones:
 
 Dentro de la carpeta `finished_product`, se encuentran módulos que se utilizan dentro de `FinishedProduct.js`.
 
-* `GeneralInfo.js`:
+* `GeneralInfo.js`: Contiene los campos de la información general del formulario.
 
-* `ProductInformationTab.js`:
-
-* `AdditionalSupplyInfoTab.js`:
+* `ProductInformationTab.js`: Contiene los campos de la información del producto del formulario.
 
 ## Consideraciones Adicionales
 
