@@ -34,4 +34,6 @@ Dentro de la carpeta `finished_product`, se encuentran módulos que se utilizan 
 
 ## Consideraciones Adicionales
 
+1. En la carpeta `docs` se encuentra el ppt que detalla los campos de cada sección del formulario y un PDF que contiene anotaciones sobre cambios que falta incorporar en lo que alcancé a implementar.
+
 
